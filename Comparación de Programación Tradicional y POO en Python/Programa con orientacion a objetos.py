@@ -64,13 +64,13 @@ class Clima_diario:
         """
         Muestra la información del clima formateada.
         """
-        print("┌----------------------------------------------------┐")
-        print(f"| Fecha: {self.fecha}                                  |")
-        print(f"| Temperatura máxima: {self.temperatura_maxima:.2f} °C                       |")
+        print("┌-----------------------------------------------------┐")
+        print(f"| Fecha: {self.fecha}                                   |")
+        print(f"| Temperatura máxima: {self.temperatura_maxima:.2f} °C                        |")
         print(f"| Temperatura mínima: {self.temperatura_minima:.2f} °C                        |")
-        print(f"| Precipitación: {self.precipitacion:.2f} mm                            |")
-        print(f"| Promedio de temperatura: {self.calcular_promedio():.2f} °C                  |")
-        print("└----------------------------------------------------┘")
+        print(f"| Precipitación: {self.precipitacion:.2f} mm                             |")
+        print(f"| Promedio de temperatura: {self.calcular_promedio():.2f} °C                   |")
+        print("└-----------------------------------------------------┘")
 
 
 # Crear un objeto Clima_diario
