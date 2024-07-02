@@ -13,6 +13,7 @@ class Empleado:
 
     def get_nombre_empleado(self):
         return self.__nombre
+
 # metodo: get_nombre_completo()
     def get_nombre_completo(self):
         # Retorna el nombre completo del empleado.
