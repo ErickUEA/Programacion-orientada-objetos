@@ -57,7 +57,7 @@ def menu():
             product0 = Producto(id_producto, nombre, cantidad, precio)
             inventario.agrega_producto(product0)
         elif opciones == 2:
-            id_producto = input("Ingrese la id del producto para elimarlo: ")
+            id_producto = input("Ingrese la id del producto para borrarlo: ")
             inventario.elimina_producto(id_producto)
         elif opciones == 3:
             id_producto = input("Ingrese la id del producto para actualizarlo: ")
