@@ -11,37 +11,47 @@ class Producto:
 
 class Inventario:
     def __init__(self):
-        self.lista_productos = {}
+        self.lista_productos = []
 
     def agrega_producto(self, producto):
-        if producto.ID_producto in self.lista_productos:
+        if any(p.ID_producto == producto.ID_producto for p in self.lista_productos):
             print("El producto ya existe")
         else:
-            self.lista_productos[producto.ID_producto] = producto
+            self.lista_productos.append(producto)
 
     def elimina_producto(self,ID_producto):
-        if ID_producto in self.lista_productos:
-            del self.lista_productos[ID_producto]
-        else:
-            print("El producto no existe")
+        for i, producto in enumerate(self.lista_productos):
+            if producto.ID_producto == ID_producto:
+                del self.lista_productos[i]
+                print("Producto eliminado.")
+                return
+        print ("NO se encuentra el producto")
 
     def actualiza_producto(self, ID_producto, cantidad=None, precio=None):
-        if ID_producto in self.lista_productos:
-            if cantidad is not None:
-                self.lista_productos[ID_producto].cantidad = cantidad
-            if precio is not None:
-                self.lista_productos[ID_producto].precio = precio
-        else:
-            print("El producto no existe")
+        for producto in self.lista_productos:
+            if producto.ID_producto == ID_producto:
+                if cantidad is not None:
+                    producto.cantidad_producto = cantidad
+                if precio is not None:
+                    producto.precio_producto = precio
+                print("Se ha actualizado el producto.")
+                return
+        print("El producto no existe")
 
     def busca_producto(self, nombre):
-        for producto in self.lista_productos.values():
-            if nombre.lower() in producto.nombre_producto.lower():
+        resultados = [p for p in self.lista_productos if nombre.lower() in p.nombre_producto.lower()]
+        if resultados:
+            for producto in resultados:
                 print(producto)
+        else:
+            print("No se encontraron productos con ese nombre.")
 
     def muestra_inventario(self):
-        for producto in self.lista_productos.values():
-            print(producto)
+        if self.lista_productos:
+            for producto in self.lista_productos:
+                print(producto)
+        else:
+            print("El inventario esta vacio")
 
 
 def menu():
